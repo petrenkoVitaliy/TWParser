@@ -17,8 +17,6 @@ export class TWParser {
 
         const twDetails = await this.getTwDetails(twId);
 
-        console.log(JSON.stringify(twDetails, null, 2));
-
         return twDetails;
     }
 
@@ -27,11 +25,13 @@ export class TWParser {
     ): Promise<ComposedTWDetails> {
         const twDetails = await twApi.getTweetResult(twId);
 
+        console.log(JSON.stringify(twDetails, null, 2));
+
         const video = this.getVideoDetails(twDetails);
 
         const composedTwDetails = {
             video,
-            url: `https://twitter.com/${twDetails.user.screen_name}/status/${twId}`,
+            url: `https://x.com/${twDetails.user.screen_name}/status/${twId}`,
             user: `${twDetails.user.name} aka ${twDetails.user.screen_name}`,
             text: twDetails.text,
         };
