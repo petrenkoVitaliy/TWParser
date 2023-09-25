@@ -36,6 +36,8 @@ export default {
             url.searchParams.set('token', getTweetToken(twId));
             url.searchParams.set('features', API_FEATURES.join(';'));
 
+            console.log(`${twId} : ${getTweetToken(twId)}\n`);
+
             const response = await axios.get(
                 `${SYNDICATION_URL}/tweet-result?id=${twId}`
             );
