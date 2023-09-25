@@ -17,6 +17,8 @@ export class TWParser {
 
         const twDetails = await this.getTwDetails(twId);
 
+        console.log(JSON.stringify(twDetails, null, 2));
+
         return twDetails;
     }
 
@@ -24,8 +26,6 @@ export class TWParser {
         twId: string
     ): Promise<ComposedTWDetails> {
         const twDetails = await twApi.getTweetResult(twId);
-
-        console.log(JSON.stringify(twDetails, null, 2));
 
         const video = this.getVideoDetails(twDetails);
 

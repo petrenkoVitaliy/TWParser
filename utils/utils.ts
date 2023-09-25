@@ -23,6 +23,6 @@ export const Utils = {
     },
 
     formatResponseMessageDetail: (label: string, detail: string) => {
-        `*${label}:* ${detail?.replaceAll('_', '\\_')}\n\n`;
+        return `*${label}:* ${detail?.replaceAll('_', '\\_')}\n\n`;
     },
 };
