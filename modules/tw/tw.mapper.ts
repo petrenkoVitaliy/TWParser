@@ -12,10 +12,7 @@ export class TWMapper {
             const detail = Utils.getValue(twDetails, path);
 
             if (detail) {
-                acc += `*${label}:* ${String(detail)?.replaceAll(
-                    '_',
-                    '\\_'
-                )}\n\n`; // TODO utils
+                acc += Utils.formatResponseMessageDetail(label, String(detail));
             }
 
             return acc;

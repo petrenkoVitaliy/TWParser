@@ -17,6 +17,12 @@ export const Utils = {
     getValue: (obj: any, path: string | string[]) => {
         const properties = Array.isArray(path) ? path : path.split('.');
 
-        return properties.reduce((acc, subPath) => acc?.[subPath], { ...obj });
+        return properties.reduce((acc, subPath) => acc?.[subPath], {
+            ...obj,
+        }) as string | number;
+    },
+
+    formatResponseMessageDetail: (label: string, detail: string) => {
+        `*${label}:* ${detail?.replaceAll('_', '\\_')}\n\n`;
     },
 };
